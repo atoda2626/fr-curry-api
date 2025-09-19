@@ -33,7 +33,7 @@ export const addOrderItem = async (
 
   const result = await pool.query(
     `INSERT INTO order_items 
-      (name, price, image_path, topping_list, count, totalPrice, order_id) 
+      (name, price, image_path, topping_list, count, total_price, order_id) 
      VALUES ($1,$2,$3,$4,$5,$6,$7) 
      RETURNING *`,
     [

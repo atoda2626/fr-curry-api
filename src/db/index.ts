@@ -50,4 +50,20 @@ export async function getToppings() {
   }
 }
 
+export async function getUserByEmailAndPassword(
+  email: string,
+  password: string
+) {
+  try {
+    const result = await pool.query(
+      "SELECT id, name, email, zipcode, address, tel, created_at, updated_at FROM users WHERE email = $1 AND password = $2",
+      [email, password]
+    );
+    return result.rows;
+  } catch (err) {
+    console.error("Error fetching user by email and password:", err);
+    throw err;
+  }
+}
+
 export default pool;
