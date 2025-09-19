@@ -83,6 +83,7 @@ import orderRouter from "./routes/order";
 import cartRouter from "./routes/cart";
 import { errorHandler } from "./middlewares/errors";
 import db from "./db/index";
+import usersRouter from "./routes/users";
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -110,6 +111,7 @@ app.use("/topping", toppingsRouter);
 app.use("/orderItems", orderItemsRouter);
 app.use("/orders", orderRouter);
 app.use("/cart", cartRouter);
+app.use("/", usersRouter);
 
 // ヘルスチェック
 app.get("/health", (req, res) => {

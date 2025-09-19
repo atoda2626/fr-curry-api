@@ -8,15 +8,7 @@ import pool from "../db/index.js";
 let insertedId: number;
 
 beforeAll(async () => {
-  const item = await addOrderItem(
-    "テストカレー",
-    1000,
-    "/test.jpg",
-    [],
-    1,
-    1000,
-    1
-  );
+  const item = await addOrderItem("テストカレー", 1000, "/test.jpg", [], 1, 1);
   insertedId = item.id;
 });
 
